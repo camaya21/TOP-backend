@@ -2,6 +2,7 @@
 
 const express = require('express')
 const router = express.Router()
+const {Symptoms} = require ('../models')
 
 // mongoose connection
 require("../config/db.connection");
@@ -11,9 +12,15 @@ require("../config/db.connection");
 ////////////////////////////////
 
 // SYMPTOMS INDEX ROUTE
-router.get("/", async (req, res) => {
-	res.status(200).json({message: "symptoms index route"})
-});
+router.get('/', async (req,res)=>{ 
+    try {
+        const symptomsIndex = await Symptoms.find({})
+        return res.status(200).json(symptomsIndex)
+    } catch(error) {
+        console.error(error)
+        return next(error)
+    }
+})
 
 // SYMPTOMS CREATE ROUTE
 router.post("/", async (req, res) =>  {
