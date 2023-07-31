@@ -44,9 +44,14 @@ router.get('/:id', async(req,res)=>{
 })
 
 // SYMPTOMS DELETE ROUTE
-router.delete("/:id", async (req, res) => {
-	res.status(200).json({message: "symptoms delete route: " + req.params.id })
-});
+router.delete('/:id', async(req,res)=>{
+    try{
+        const deletedSymptoms = await Symptoms.findByIdAndDelete(req.params.id)
+        res.status(201).json(deletedSymptoms)
+    }catch(err){
+        res.status(400).json({error: err.message})
+    }
+})
 
 // SYMPTOMS UPDATE ROUTE
 router.put("/:id", async (req, res) => {
