@@ -13,7 +13,24 @@ const express = require("express");
 
 // create application object
 const app = express();
+
+// app dependencies
+const cors = require('cors')
+const morgan = require ('morgan')
 	
+// controllers
+const symptomController = require('./controllers/symptom-controller')
+
+// express / middleware
+app.use(express.json());
+
+//Cors helper function
+app.use(cors());
+
+//Morgan
+app.use(morgan("dev"));
+
+app.use('/symptoms', symptomController)
 ///////////////////////////////
 // ROUTES
 ////////////////////////////////
