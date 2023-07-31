@@ -22,7 +22,7 @@ router.get('/', async (req,res)=>{
     }
 })
 
-// SYMPTOMS CREATE ROUTE
+// SYMPTOMS POST ROUTE
 router.post('/', async(req, res)=>{
     try{
         const newSymptoms = await Symptoms.create(req.body)
@@ -34,9 +34,14 @@ router.post('/', async(req, res)=>{
 
 
 // SYMPTOMS SHOW ROUTE
-router.get("/:id", async (req, res) => {
-	res.status(200).json({message: "symptoms show route: " + req.params.id })
-});
+router.get('/:id', async(req,res)=>{
+    try{
+        const findSymptoms = await Symptoms.findById(req.params.id)
+        res.status(201).json(findSymptoms)
+    }catch(err){
+        res.status(400).json({error: err.message})
+    }
+})
 
 // SYMPTOMS DELETE ROUTE
 router.delete("/:id", async (req, res) => {
