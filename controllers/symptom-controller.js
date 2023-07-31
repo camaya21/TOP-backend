@@ -23,9 +23,15 @@ router.get('/', async (req,res)=>{
 })
 
 // SYMPTOMS CREATE ROUTE
-router.post("/", async (req, res) =>  {
-	res.status(201).json({message: "symptoms create route"})
-});
+router.post('/', async(req, res)=>{
+    try{
+        const newSymptoms = await Symptoms.create(req.body)
+        res.status(201).json(newSymptoms)
+    }catch(err){
+        res.status(400).json ({error:err.message})
+    }
+})
+
 
 // SYMPTOMS SHOW ROUTE
 router.get("/:id", async (req, res) => {
