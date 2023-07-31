@@ -54,9 +54,12 @@ router.delete('/:id', async(req,res)=>{
 })
 
 // SYMPTOMS UPDATE ROUTE
-router.put("/:id", async (req, res) => {
-	console.log(req.body)
-	res.status(200).json({message: "symptoms update route: " + req.params.id })
-});
+router.put('/:id', async (req, res) => {
+    try{
+        res.json(await Symptoms.findByIdAndUpdate(req.params.id, req.body, {new:true}))
+    }catch (error){
+        res.json(error)
+    }
+})
 
 module.exports = router
