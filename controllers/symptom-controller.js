@@ -20,6 +20,14 @@ router.post("/", async (req, res) =>  {
 	res.status(201).json({message: "symptoms create route"})
 });
 
-// 
+// SYMPTOMS SHOW ROUTE
+router.get("/:id", async (req, res) => {
+	res.status(200).json({message: "symptoms show route: " + req.params.id })
+});
+
+// SYMPTOMS DELETE ROUTE
+router.delete("/:id", async (req, res) => {
+	res.status(200).json({message: "symptoms delete route: " + req.params.id })
+});
 
 module.exports = router
