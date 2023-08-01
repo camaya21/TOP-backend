@@ -24,4 +24,4 @@ const SymptomsSchema = new mongoose.Schema({
 // const Symptoms = mongoose.model("Symptoms", SymptomsSchema);
 
 // module.exports = Symptoms
- export default mongoose.models.Symptoms || mongoose.model("Symtoms", SymptomsSchema);
+ export default mongoose.models.Symptoms || mongoose.model("Symptoms", SymptomsSchema);
