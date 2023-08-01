@@ -1,9 +1,7 @@
 ///////////////////////////////
 // DEPENDENCIES
 ////////////////////////////////
-// const mongoose = require("mongoose");
-import mongoose from "mongoose";
-const Schema = mongoose.Schema
+const mongoose = require("mongoose");
 
 ///////////////////////////////
 // MODELS
@@ -21,7 +19,6 @@ const SymptomsSchema = new mongoose.Schema({
     medicalHistory: { type: String, require: true },
 },{timestamps: true});
 
-// const Symptoms = mongoose.model("Symptoms", SymptomsSchema);
+const Symptoms = mongoose.model("Symptoms", SymptomsSchema);
 
-// module.exports = Symptoms
- export default mongoose.models.Symptoms || mongoose.model("Symptoms", SymptomsSchema);
+module.exports = Symptoms
