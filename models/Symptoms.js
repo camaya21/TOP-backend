@@ -31,7 +31,7 @@ const SymptomsSchema = new mongoose.Schema({
     dateOfBirth: { type: String },
     phoneNumber: { type: String },
     medicalHistory: { type: String },
-    optStAddress: { type: String },
+    optStreetAddress: { type: String },
     optState: { type: String },
     optZipcode: {type: String},
 },{timestamps: true});
