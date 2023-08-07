@@ -28,12 +28,15 @@ const SymptomsSchema = new mongoose.Schema({
     race: { type: String, require: true },
     ethnicity: { type: String, require: true },
     zipcode: { type: String, require: true },
-    dateOfBirth: { type: String, require: true },
-    address: { type: String, require: true },
-    phoneNumber: { type: String, require: true },
-    medicalHistory: { type: String, require: true },
+    dateOfBirth: { type: String },
+    phoneNumber: { type: String },
+    medicalHistory: { type: String },
+    optStAddress: { type: String },
+    optState: { type: String },
+    optZipcode: {type: String},
 },{timestamps: true});
 
 const Symptoms = mongoose.model("Symptoms", SymptomsSchema);
 
 module.exports = Symptoms
+
