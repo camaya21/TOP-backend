@@ -27,7 +27,7 @@ const SymptomsSchema = new mongoose.Schema({
     sex: { type: String, require: true },
     race: { type: String, require: true },
     ethnicity: { type: String, require: true },
-    zipcode: { type: String, require: true },
+    zipCode: { type: String, require: true },
     dateOfBirth: { type: String },
     phoneNumber: { type: String },
     medicalHistory: { type: String },
