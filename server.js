@@ -16,10 +16,11 @@ const app = express();
 
 // app dependencies
 const cors = require('cors')
-const morgan = require ('morgan')
-	
+const morgan = require('morgan')
+
 // controllers
 const symptomController = require('./controllers/symptom-controller')
+const resultsController = require('./controllers/results-controller');
 
 // express / middleware
 app.use(express.json());
@@ -31,6 +32,7 @@ app.use(cors());
 app.use(morgan("dev"));
 
 app.use('/symptoms', symptomController)
+app.use('/results', resultsController);
 ///////////////////////////////
 // ROUTES
 ////////////////////////////////
