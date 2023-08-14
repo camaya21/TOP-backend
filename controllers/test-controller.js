@@ -31,5 +31,14 @@ router.post('/', async(req, res)=>{
         res.status(400).json ({error:err.message})
     }
 })
+// TEST SHOW ROUTE
+router.get('/:id', async(req,res)=>{
+    try{
+        const findSymptoms = await Symptoms.findById(req.params.id)
+        res.status(201).json(findSymptoms)
+    }catch(err){
+        res.status(400).json({error: err.message})
+    }
+})
 
 
