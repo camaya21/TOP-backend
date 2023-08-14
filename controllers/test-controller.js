@@ -21,3 +21,15 @@ router.get('/', async (req,res)=>{
         return next(error)
     }
 })
+
+// TEST POST ROUTE
+router.post('/', async(req, res)=>{
+    try{
+        const newSymptoms = await Symptoms.create(req.body)
+        res.status(201).json(newSymptoms)
+    }catch(err){
+        res.status(400).json ({error:err.message})
+    }
+})
+
+
