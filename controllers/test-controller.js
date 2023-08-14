@@ -51,5 +51,14 @@ router.delete('/:id', async(req,res)=>{
     }
 })
 
+// TEST UPDATE ROUTE
+router.put('/:id', async (req, res) => {
+    try{
+        res.json(await Test.findByIdAndUpdate(req.params.id, req.body, {new:true}))
+    }catch (error){
+        res.json(error)
+    }
+})
 
+module.exports = router
 
