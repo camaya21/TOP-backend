@@ -1,3 +1,4 @@
 module.exports = {
-    Symptoms: require('./Symptoms')
+    Symptoms: require('./Symptoms'),
+    Test: require('./Covid-Test')
 }
