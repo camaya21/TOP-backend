@@ -19,8 +19,9 @@ const cors = require('cors')
 const morgan = require('morgan')
 
 // controllers
-const symptomController = require('./controllers/symptom-controller')
+const symptomController = require('./controllers/symptom-controller');
 const resultsController = require('./controllers/results-controller');
+const testController = require('./controllers/test-controller')
 
 // express / middleware
 app.use(express.json());
@@ -33,6 +34,7 @@ app.use(morgan("dev"));
 
 app.use('/symptoms', symptomController)
 app.use('/results', resultsController);
+app.use('/covid-test', testController)
 ///////////////////////////////
 // ROUTES
 ////////////////////////////////
